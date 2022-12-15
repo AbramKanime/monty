@@ -108,3 +108,19 @@ stack_t *add_dnodeint_end(stack_t **head, const int n)
 	return (new_node);
 }
 
+/**
+ * free_dlistint - free a list
+ * @head: pointer to first node
+ *
+ */
+void free_dlistint(stack_t *head)
+{
+	stack_t *tmp;
+
+	while (head != NULL)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
+}
