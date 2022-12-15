@@ -50,3 +50,24 @@ void _mul(stack_t **stack, unsigned int line_number)
 	_pop(stack, line_number);
 }
 
+/**
+ * _div - divide top of stack and second top of stack
+ * @stack: pointer to linked list stack
+ * @line_number: number of line opcode occurs on
+ */
+void _div(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL || (*stack)->next == NULL)
+	{
+		printf("L%d: can't div, stack too short\n", line_number);
+		error_exit(stack);
+	}
+	if ((*stack)->n == 0)
+	{
+		printf("L%d: division by zero\n", line_number);
+		error_exit(stack);
+	}
+	(*stack)->next->n /= (*stack)->n;
+	_pop(stack, line_number);
+}
+
