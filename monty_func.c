@@ -1,3 +1,4 @@
+#define  _GNU_SOURCE
 #include "monty.h"
 /**
  * read_file - reads a bytecode file and runs commands
